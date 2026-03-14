@@ -1,0 +1,193 @@
+/* Базовые настройки для мобильных и десктопа */
+body {
+    background-color: #f4f1ea;
+    font-family: "Times New Roman", Times, serif;
+    color: #1a1a1a;
+    line-height: 1.4;
+    margin: 0;
+    padding: 10px; /* Уменьшил отступы для мобильных */
+}
+
+.newspaper-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px; /* Адаптивный паддинг */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Адаптивная шапка в стиле Бауманской Правды  */
+.header-top {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы на узких экранах лого и текст встали друг под друга */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.title-block {
+    text-align: center; /* Центровка для мобилок */
+    text-transform: uppercase;
+}
+
+.title-small {
+    font-size: 8vw; /* Размер зависит от ширины экрана */
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.title-large {
+    font-size: 15vw;
+    font-weight: 900;
+    line-height: 0.9;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column; /* Стек вместо строки на мобилках */
+    align-items: center;
+    font-size: 9pt;
+    gap: 5px;
+    padding: 5px 0;
+}
+
+.double-line {
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #000;
+    height: 3px;
+    margin: 5px 0;
+}
+
+/* Тест */
+.question-block {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fafafa;
+    border-left: 3px solid #000; /* Выделение вопроса */
+}
+
+.option {
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px; /* Удобнее попадать пальцем */
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.option:active {
+    background: #eee;
+}
+
+#submit-btn {
+    width: 100%;
+    padding: 20px;
+    background: #000;
+    color: #fff;
+    font-size: 14pt;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    position: sticky; /* Кнопка всегда под рукой */
+    bottom: 0;
+}
+
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000; /* Поверх всего */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85); /* Задний фон */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Модальное окно результата */
+.modal-content {
+    background-color: #f4f1ea;
+    padding: 30px;
+    border: 5px double #000;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    animation: fadeIn 0.3s;
+}
+
+/* Медиа-запросы для планшетов и ПК */
+@media (min-width: 768px) {
+    /* Добавь эти строки обратно: */
+    .title-small { font-size: 28pt; } /* Фиксированный размер для ПК */
+    .title-large { font-size: 60pt; } /* Фиксированный размер для ПК */
+    .title-block { text-align: right; }
+    .header-top { justify-content: space-between; flex-wrap: nowrap; }
+
+    /* Твои новые настройки сетки остаются: */
+    #questions-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .question-block {
+        break-inside: avoid;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .question-block {
+        margin-bottom: 25px;
+        padding: 10px;
+        background: #fdfdfd;
+        border: 1px solid #e0e0e0;
+    }
+}
+
+
+#restart-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+
+    /* Убираем системные стили мобильных браузеров */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Принудительно задаем газетный стиль */
+    background-color: #f4f1ea; /* Цвет бумаги */
+    color: #000; /* Черный текст */
+    border: 2px solid #000; /* Строгая рамка */
+
+    font-family: "Times New Roman", serif;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 0; /* Убираем закругления, которые часто бывают синими/голубыми */
+}
+
+#restart-btn:hover, #restart-btn:active {
+    background-color: #000;
+    color: #f4f1ea;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.question-text {
+    display: block;
+    font-weight: bold; /* Жирный шрифт для вопроса */
+    font-size: 11pt;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee; /* Тонкая разделительная черта */
+    line-height: 1.2;
+}

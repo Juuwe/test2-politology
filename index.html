@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тест: Объект «Стройка-2026» — Бауманская Правда</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="newspaper-container">
+      <header class="main-header">
+        <div class="header-top">
+          <div class="logo-placeholder"></div>
+          <div class="title-block">
+            <div class="title-small">БАУМАНСКАЯ</div>
+            <div class="title-large">ПРАВДА</div>
+          </div>
+        </div>
+        <div class="double-line"></div>
+      </header>
+
+      <section class="test-intro">
+        <h1>ТЕСТ: ОБЪЕКТ «СТРОЙКА-2026»</h1>
+        <p>
+          Товарищ! Перед тобой пять критических ситуаций в управлении системой.
+          Твое решение определит коэффициент устойчивости всей конструкции.
+          Выбирай расчетливо — на кону будущее нашего города!
+        </p>
+      </section>
+
+      <form id="quiz-form">
+        <div id="questions-container"></div>
+        <button type="button" id="submit-btn">УЗНАТЬ РЕЗУЛЬТАТ</button>
+      </form>
+
+      <div id="result-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <div class="double-line"></div>
+          <h2 id="result-title"></h2>
+          <p id="result-description"></p>
+          <div class="double-line"></div>
+          <button id="restart-btn" onclick="location.reload()">ПРОЙТИ ЗАНОВО</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
